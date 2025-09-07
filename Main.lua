@@ -25,5 +25,5 @@ end
 
 function Rotation:Init()
     Rotation.InitSettings()
-    Utils.Print("PALADIN Init")
+    Utils.Print(addonName .. " Inited")
 end
