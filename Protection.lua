@@ -22,7 +22,7 @@ BLESS_DEBUFF["冥河之种"] = true; -- 破晨号 > 夜幕祭师
 BLESS_DEBUFF["深渊轰击"] = true; -- 破晨号 > 坚不可摧的伊克斯雷腾
 
 function Rotation.Main()
-    local settings = RLib_Paladin_SavedVar
+    local settings = RLib_ProtPally_SavedVar
 
     local temp_unit = nil;
 

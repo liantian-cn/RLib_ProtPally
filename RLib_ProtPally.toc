@@ -5,7 +5,7 @@
 ## Author: liantian-cn
 ## IconAtlas: questlog-questtypeicon-weekly
 ## Dependencies: RLib
-## SavedVariables: RLib_Paladin_SavedVar
+## SavedVariables: RLib_ProtPally_SavedVar
 
 Settings.lua
 Macro.lua

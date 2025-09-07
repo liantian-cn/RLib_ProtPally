@@ -12,38 +12,38 @@ Settings.RegisterAddOnCategory(category)
 
 
 function Rotation.InitSettings()
-    if RLib_Paladin_SavedVar == nil then
-        RLib_Paladin_SavedVar = {}
+    if RLib_ProtPally_SavedVar == nil then
+        RLib_ProtPally_SavedVar = {}
     end
-    if not RLib_SavedVar.fps then
-        RLib_Paladin_SavedVar.DS_HEALTH = 10
+    if not RLib_ProtPally_SavedVar.fps then
+        RLib_ProtPally_SavedVar.DS_HEALTH = 10
     end
-    if not RLib_SavedVar.WOD_HEALTH_1 then
-        RLib_Paladin_SavedVar.WOD_HEALTH_1 = 50
+    if not RLib_ProtPally_SavedVar.WOD_HEALTH_1 then
+        RLib_ProtPally_SavedVar.WOD_HEALTH_1 = 50
     end
-    if not RLib_SavedVar.WOD_HEALTH_2 then
-        RLib_Paladin_SavedVar.WOD_HEALTH_2 = 70
+    if not RLib_ProtPally_SavedVar.WOD_HEALTH_2 then
+        RLib_ProtPally_SavedVar.WOD_HEALTH_2 = 70
     end
-    if not RLib_Paladin_SavedVar.AUTO_DISPEL then
-        RLib_Paladin_SavedVar.AUTO_DISPEL = true
+    if not RLib_ProtPally_SavedVar.AUTO_DISPEL then
+        RLib_ProtPally_SavedVar.AUTO_DISPEL = true
     end
-    if not RLib_SavedVar.AUTO_DISPEL_COUNT then
-        RLib_Paladin_SavedVar.AUTO_DISPEL_COUNT = 1
+    if not RLib_ProtPally_SavedVar.AUTO_DISPEL_COUNT then
+        RLib_ProtPally_SavedVar.AUTO_DISPEL_COUNT = 1
     end
-    if not RLib_Paladin_SavedVar.AUTO_BLESS then
-        RLib_Paladin_SavedVar.AUTO_BLESS = true
+    if not RLib_ProtPally_SavedVar.AUTO_BLESS then
+        RLib_ProtPally_SavedVar.AUTO_BLESS = true
     end
-    if not RLib_SavedVar.AUTO_BLESS_HP then
-        RLib_Paladin_SavedVar.AUTO_BLESS_HP = 70
+    if not RLib_ProtPally_SavedVar.AUTO_BLESS_HP then
+        RLib_ProtPally_SavedVar.AUTO_BLESS_HP = 70
     end
-    if not RLib_Paladin_SavedVar.AUTO_DIVINE then
-        RLib_Paladin_SavedVar.AUTO_DIVINE = true
+    if not RLib_ProtPally_SavedVar.AUTO_DIVINE then
+        RLib_ProtPally_SavedVar.AUTO_DIVINE = true
     end
-    if not RLib_SavedVar.AUTO_DIVINE_COUNT then
-        RLib_Paladin_SavedVar.AUTO_DIVINE_COUNT = 3
+    if not RLib_ProtPally_SavedVar.AUTO_DIVINE_COUNT then
+        RLib_ProtPally_SavedVar.AUTO_DIVINE_COUNT = 3
     end
-    if not RLib_Paladin_SavedVar.USE_SET4 then
-        RLib_Paladin_SavedVar.USE_SET4 = true
+    if not RLib_ProtPally_SavedVar.USE_SET4 then
+        RLib_ProtPally_SavedVar.USE_SET4 = true
     end
 end
 
@@ -55,10 +55,10 @@ do
     local maxValue = 30
     local step = 1
     local function GetValue()
-        return RLib_Paladin_SavedVar.DS_HEALTH or defaultValue
+        return RLib_ProtPally_SavedVar.DS_HEALTH or defaultValue
     end
     local function SetValue(value)
-        RLib_Paladin_SavedVar.DS_HEALTH = value
+        RLib_ProtPally_SavedVar.DS_HEALTH = value
     end
     local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
     local tooltip = "设置自动使用圣盾术的血量"
@@ -76,10 +76,10 @@ do
     local maxValue = 70
     local step = 1
     local function GetValue()
-        return RLib_Paladin_SavedVar.WOD_HEALTH_1 or defaultValue
+        return RLib_ProtPally_SavedVar.WOD_HEALTH_1 or defaultValue
     end
     local function SetValue(value)
-        RLib_Paladin_SavedVar.WOD_HEALTH_1 = value
+        RLib_ProtPally_SavedVar.WOD_HEALTH_1 = value
     end
     local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
     local tooltip = "使用荣耀圣令的低血量"
@@ -97,10 +97,10 @@ do
     local maxValue = 90
     local step = 1
     local function GetValue()
-        return RLib_Paladin_SavedVar.WOD_HEALTH_2 or defaultValue
+        return RLib_ProtPally_SavedVar.WOD_HEALTH_2 or defaultValue
     end
     local function SetValue(value)
-        RLib_Paladin_SavedVar.WOD_HEALTH_2 = value
+        RLib_ProtPally_SavedVar.WOD_HEALTH_2 = value
     end
     local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
     local tooltip = "使用荣耀圣令的高血量"
@@ -116,10 +116,10 @@ do
     local tooltip = "自动对队友使用驱散技能"
     local defaultValue = true
     local function GetValue()
-        return RLib_Paladin_SavedVar.AUTO_DISPEL or defaultValue
+        return RLib_ProtPally_SavedVar.AUTO_DISPEL or defaultValue
     end
     local function SetValue(value)
-        RLib_Paladin_SavedVar.AUTO_DISPEL = value
+        RLib_ProtPally_SavedVar.AUTO_DISPEL = value
     end
     local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
     Settings.CreateCheckbox(category, setting, tooltip)
@@ -135,11 +135,11 @@ do
     local maxValue = 3
     local step = 1
     local function GetValue()
-        return RLib_Paladin_SavedVar.AUTO_DISPEL_COUNT or defaultValue
+        return RLib_ProtPally_SavedVar.AUTO_DISPEL_COUNT or defaultValue
     end
 
     local function SetValue(value)
-        RLib_Paladin_SavedVar.AUTO_DISPEL_COUNT = value
+        RLib_ProtPally_SavedVar.AUTO_DISPEL_COUNT = value
     end
     local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
     local options = Settings.CreateSliderOptions(minValue, maxValue, step)
@@ -154,10 +154,10 @@ do
     local tooltip = "为拥有特定debuff的队友释放释放牺牲祝福"
     local defaultValue = true
     local function GetValue()
-        return RLib_Paladin_SavedVar.AUTO_BLESS or defaultValue
+        return RLib_ProtPally_SavedVar.AUTO_BLESS or defaultValue
     end
     local function SetValue(value)
-        RLib_Paladin_SavedVar.AUTO_BLESS = value
+        RLib_ProtPally_SavedVar.AUTO_BLESS = value
     end
     local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
     Settings.CreateCheckbox(category, setting, tooltip)
@@ -173,10 +173,10 @@ do
     local maxValue = 99
     local step = 1
     local function GetValue()
-        return RLib_Paladin_SavedVar.AUTO_BLESS_HP or defaultValue
+        return RLib_ProtPally_SavedVar.AUTO_BLESS_HP or defaultValue
     end
     local function SetValue(value)
-        RLib_Paladin_SavedVar.AUTO_BLESS_HP = value
+        RLib_ProtPally_SavedVar.AUTO_BLESS_HP = value
     end
     local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
     local options = Settings.CreateSliderOptions(minValue, maxValue, step)
@@ -192,10 +192,10 @@ do
     local tooltip = "自动敲钟打断施法"
     local defaultValue = true
     local function GetValue()
-        return RLib_Paladin_SavedVar.AUTO_DIVINE or defaultValue
+        return RLib_ProtPally_SavedVar.AUTO_DIVINE or defaultValue
     end
     local function SetValue(value)
-        RLib_Paladin_SavedVar.AUTO_DIVINE = value
+        RLib_ProtPally_SavedVar.AUTO_DIVINE = value
     end
     local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
     Settings.CreateCheckbox(category, setting, tooltip)
@@ -213,11 +213,11 @@ do
     local maxValue = 10
     local step = 1
     local function GetValue()
-        return RLib_Paladin_SavedVar.AUTO_DIVINE_COUNT or defaultValue
+        return RLib_ProtPally_SavedVar.AUTO_DIVINE_COUNT or defaultValue
     end
 
     local function SetValue(value)
-        RLib_Paladin_SavedVar.AUTO_DIVINE_COUNT = value
+        RLib_ProtPally_SavedVar.AUTO_DIVINE_COUNT = value
     end
     local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
     local options = Settings.CreateSliderOptions(minValue, maxValue, step)
@@ -234,10 +234,10 @@ do
     local tooltip = "根据当前赛季（地心之战S3）的套装效果，使用技能。"
     local defaultValue = true
     local function GetValue()
-        return RLib_Paladin_SavedVar.USE_SET4 or defaultValue
+        return RLib_ProtPally_SavedVar.USE_SET4 or defaultValue
     end
     local function SetValue(value)
-        RLib_Paladin_SavedVar.USE_SET4 = value
+        RLib_ProtPally_SavedVar.USE_SET4 = value
     end
     local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
     Settings.CreateCheckbox(category, setting, tooltip)
