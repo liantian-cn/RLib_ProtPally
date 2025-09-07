@@ -211,7 +211,7 @@ function Rotation.Main()
             return Action:Cast("复仇之怒")
         end
 
-        if Spell("圣洁武器"):Usable() and (Spell("圣洁武器"):Charges() >= 1) and Spell("圣洁武器"):CooldownUp() then
+        if (Spell("圣洁武器"):Charges() >= 1) or (Spell("神圣壁垒"):Charges() >= 1) then
             return Action:Cast("神圣壁垒")
         end
     end
