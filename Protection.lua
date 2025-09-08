@@ -12,6 +12,7 @@ local Spell = RL.Spell
 local Party = RL.Party
 local Plater = RL.Plater
 local Combat = RL.Combat
+local Utils = RL.Utils
 
 
 local BLESS_DEBUFF = {} -- 牺牲祝福的debuff
@@ -141,6 +142,7 @@ function Rotation.Main()
     if AUTO_DISPEL and Spell("清毒术"):CooldownUp() then
         temp_unit = Party:FindMemberWithMostDebuffsByType("Disease|Poison", AUTO_DISPEL_COUNT)
         if temp_unit then
+            -- Utils.Print("驱散疾病和毒素: " .. temp_unit:Name())
             return Action:Cast(temp_unit:ID() .. "清毒术")
         end
     end
