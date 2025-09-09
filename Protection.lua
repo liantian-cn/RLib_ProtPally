@@ -53,7 +53,7 @@ function Rotation.Main()
     end
 
     -- 检查目标是否为玩家（PVP情况）
-    if Target:IsAPlayer() then
+    if Target:IsPlayer() then
         return Action:Idle("目标是玩家")
     end
 
