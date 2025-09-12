@@ -3,7 +3,8 @@
 -- Addon
 local addonName, Rotation = ...
 
-
+local RL = RLib
+local Utils = RL.Utils
 
 
 
@@ -24,26 +25,29 @@ function Rotation.InitSettings()
     if not RLib_ProtPally_SavedVar.WOD_HEALTH_2 then
         RLib_ProtPally_SavedVar.WOD_HEALTH_2 = 70
     end
-    if not RLib_ProtPally_SavedVar.AUTO_DISPEL then
+    if RLib_ProtPally_SavedVar.AUTO_DISPEL == nil then
         RLib_ProtPally_SavedVar.AUTO_DISPEL = true
     end
     if not RLib_ProtPally_SavedVar.AUTO_DISPEL_COUNT then
         RLib_ProtPally_SavedVar.AUTO_DISPEL_COUNT = 1
     end
-    if not RLib_ProtPally_SavedVar.AUTO_BLESS then
+    if RLib_ProtPally_SavedVar.AUTO_BLESS == nil then
         RLib_ProtPally_SavedVar.AUTO_BLESS = true
     end
     if not RLib_ProtPally_SavedVar.AUTO_BLESS_HP then
         RLib_ProtPally_SavedVar.AUTO_BLESS_HP = 70
     end
-    if not RLib_ProtPally_SavedVar.AUTO_DIVINE then
+    if RLib_ProtPally_SavedVar.AUTO_DIVINE == nil then
         RLib_ProtPally_SavedVar.AUTO_DIVINE = true
     end
     if not RLib_ProtPally_SavedVar.AUTO_DIVINE_COUNT then
         RLib_ProtPally_SavedVar.AUTO_DIVINE_COUNT = 3
     end
-    if not RLib_ProtPally_SavedVar.USE_SET4 then
+    if RLib_ProtPally_SavedVar.USE_SET4 == nil then
         RLib_ProtPally_SavedVar.USE_SET4 = true
+    end
+    if RLib_ProtPally_SavedVar.INTERRUPT_ALL == nil then
+        RLib_ProtPally_SavedVar.INTERRUPT_ALL = true
     end
 end
 
@@ -55,9 +59,10 @@ do
     local maxValue = 30
     local step = 1
     local function GetValue()
-        return RLib_ProtPally_SavedVar.DS_HEALTH or defaultValue
+        return RLib_ProtPally_SavedVar.DS_HEALTH
     end
     local function SetValue(value)
+        Utils.Print("圣盾术阈值:" .. tostring(value))
         RLib_ProtPally_SavedVar.DS_HEALTH = value
     end
     local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
@@ -76,9 +81,10 @@ do
     local maxValue = 70
     local step = 1
     local function GetValue()
-        return RLib_ProtPally_SavedVar.WOD_HEALTH_1 or defaultValue
+        return RLib_ProtPally_SavedVar.WOD_HEALTH_1
     end
     local function SetValue(value)
+        Utils.Print("荣耀圣令阈值1:" .. tostring(value))
         RLib_ProtPally_SavedVar.WOD_HEALTH_1 = value
     end
     local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
@@ -97,9 +103,10 @@ do
     local maxValue = 90
     local step = 1
     local function GetValue()
-        return RLib_ProtPally_SavedVar.WOD_HEALTH_2 or defaultValue
+        return RLib_ProtPally_SavedVar.WOD_HEALTH_2
     end
     local function SetValue(value)
+        Utils.Print("荣耀圣令阈值2:" .. tostring(value))
         RLib_ProtPally_SavedVar.WOD_HEALTH_2 = value
     end
     local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
@@ -116,9 +123,10 @@ do
     local tooltip = "自动对队友使用驱散技能"
     local defaultValue = true
     local function GetValue()
-        return RLib_ProtPally_SavedVar.AUTO_DISPEL or defaultValue
+        return RLib_ProtPally_SavedVar.AUTO_DISPEL
     end
     local function SetValue(value)
+        Utils.Print("自动对队友使用驱散技能" .. tostring(value))
         RLib_ProtPally_SavedVar.AUTO_DISPEL = value
     end
     local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
@@ -139,6 +147,7 @@ do
     end
 
     local function SetValue(value)
+        Utils.Print("驱散层数" .. tostring(value))
         RLib_ProtPally_SavedVar.AUTO_DISPEL_COUNT = value
     end
     local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
@@ -154,9 +163,10 @@ do
     local tooltip = "为拥有特定debuff的队友释放释放牺牲祝福"
     local defaultValue = true
     local function GetValue()
-        return RLib_ProtPally_SavedVar.AUTO_BLESS or defaultValue
+        return RLib_ProtPally_SavedVar.AUTO_BLESS
     end
     local function SetValue(value)
+        Utils.Print("为拥有特定debuff的队友释放释放牺牲祝福" .. tostring(value))
         RLib_ProtPally_SavedVar.AUTO_BLESS = value
     end
     local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
@@ -173,9 +183,10 @@ do
     local maxValue = 99
     local step = 1
     local function GetValue()
-        return RLib_ProtPally_SavedVar.AUTO_BLESS_HP or defaultValue
+        return RLib_ProtPally_SavedVar.AUTO_BLESS_HP
     end
     local function SetValue(value)
+        Utils.Print("牺牲祝福血量:" .. tostring(value))
         RLib_ProtPally_SavedVar.AUTO_BLESS_HP = value
     end
     local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
@@ -192,9 +203,10 @@ do
     local tooltip = "自动敲钟打断施法"
     local defaultValue = true
     local function GetValue()
-        return RLib_ProtPally_SavedVar.AUTO_DIVINE or defaultValue
+        return RLib_ProtPally_SavedVar.AUTO_DIVINE
     end
     local function SetValue(value)
+        Utils.Print("自动敲钟打断施法:" .. tostring(value))
         RLib_ProtPally_SavedVar.AUTO_DIVINE = value
     end
     local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
@@ -213,10 +225,11 @@ do
     local maxValue = 10
     local step = 1
     local function GetValue()
-        return RLib_ProtPally_SavedVar.AUTO_DIVINE_COUNT or defaultValue
+        return RLib_ProtPally_SavedVar.AUTO_DIVINE_COUNT
     end
 
     local function SetValue(value)
+        Utils.Print("圣洁鸣钟打断目标数:" .. tostring(value))
         RLib_ProtPally_SavedVar.AUTO_DIVINE_COUNT = value
     end
     local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
@@ -234,10 +247,27 @@ do
     local tooltip = "根据当前赛季（地心之战S3）的套装效果，使用技能。"
     local defaultValue = true
     local function GetValue()
-        return RLib_ProtPally_SavedVar.USE_SET4 or defaultValue
+        return RLib_ProtPally_SavedVar.USE_SET4
     end
     local function SetValue(value)
+        Utils.Print("套装四件套:" .. tostring(value))
         RLib_ProtPally_SavedVar.USE_SET4 = value
+    end
+    local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
+    Settings.CreateCheckbox(category, setting, tooltip)
+end
+
+do
+    local variable = "INTERRUPT_ALL"
+    local name = "全部打断"
+    local tooltip = "有什么断什么"
+    local defaultValue = true
+    local function GetValue()
+        return RLib_ProtPally_SavedVar.INTERRUPT_ALL
+    end
+    local function SetValue(value)
+        Utils.Print("打断全部:" .. tostring(value))
+        RLib_ProtPally_SavedVar.INTERRUPT_ALL = value
     end
     local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
     Settings.CreateCheckbox(category, setting, tooltip)

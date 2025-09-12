@@ -24,7 +24,7 @@ macro[12] = { ["title"] = "愤怒之锤", ["macrotext"] = "/cast 愤怒之锤\n/
 macro[13] = { ["title"] = "盾击和审判", ["macrotext"] = "/cast 审判\n/cast 正义盾击" }
 macro[14] = { ["title"] = "审判target", ["macrotext"] = "/cast 审判" }
 macro[15] = { ["title"] = "圣洁武器", ["macrotext"] = "/castsequence reset=1.5 神圣壁垒," }
-macro[16] = { ["title"] = "复仇之怒", ["macrotext"] = "/cast [known:31884]  复仇之怒; [known:389539] 戒卫 \n/use 淬火药水" }
+macro[16] = { ["title"] = "复仇之怒", ["macrotext"] = "/cast [known:31884]  复仇之怒; [known:389539] 戒卫" }
 macro[17] = { ["title"] = "光荣时刻", ["macrotext"] = "/cast 光荣时刻" }
 macro[18] = { ["title"] = "神圣壁垒", ["macrotext"] = "/castsequence reset=1.5 神圣壁垒," }
 macro[19] = { ["title"] = "无敌", ["macrotext"] = "/cast 圣盾术" }
