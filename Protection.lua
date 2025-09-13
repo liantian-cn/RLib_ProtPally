@@ -125,26 +125,14 @@ function Rotation.Main()
 
     -- 责难打断逻辑：优先打断鼠标悬停、焦点和当前目标的应打断法术
     if Spell("责难"):CooldownUp() then
-        if settings.INTERRUPT_ALL then
-            if MouseOver:Exists() and MouseOver:CanInterrupt() and MouseOver:AffectingCombat() and MouseOver:InRange(5) and MouseOver:CanAttack(Player) then
-                return Action:Cast("责难mouseover");
-            end
-            if Focus:Exists() and Focus:CanInterrupt() and Focus:AffectingCombat() and Focus:InRange(5) and Focus:CanAttack(Player) then
-                return Action:Cast("责难focus");
-            end
-            if Target:Exists() and Target:CanInterrupt() and Target:AffectingCombat() and Target:InRange(5) and Target:CanAttack(Player) then
-                return Action:Cast("责难target");
-            end
-        else
-            if MouseOver:Exists() and MouseOver:ShouldInterrupt() and MouseOver:AffectingCombat() and MouseOver:InRange(5) and MouseOver:CanAttack(Player) then
-                return Action:Cast("责难mouseover");
-            end
-            if Focus:Exists() and Focus:ShouldInterrupt() and Focus:AffectingCombat() and Focus:InRange(5) and Focus:CanAttack(Player) then
-                return Action:Cast("责难focus");
-            end
-            if Target:Exists() and Target:ShouldInterrupt() and Target:AffectingCombat() and Target:InRange(5) and Target:CanAttack(Player) then
-                return Action:Cast("责难target");
-            end
+        if MouseOver:Exists() and MouseOver:ShouldInterrupt() and MouseOver:AffectingCombat() and MouseOver:InRange(5) and MouseOver:CanAttack(Player) then
+            return Action:Cast("责难mouseover");
+        end
+        if Focus:Exists() and Focus:ShouldInterrupt() and Focus:AffectingCombat() and Focus:InRange(5) and Focus:CanAttack(Player) then
+            return Action:Cast("责难focus");
+        end
+        if Target:Exists() and Target:ShouldInterrupt() and Target:AffectingCombat() and Target:InRange(5) and Target:CanAttack(Player) then
+            return Action:Cast("责难target");
         end
     end
 

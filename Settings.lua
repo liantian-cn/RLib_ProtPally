@@ -46,9 +46,6 @@ function Rotation.InitSettings()
     if RLib_ProtPally_SavedVar.USE_SET4 == nil then
         RLib_ProtPally_SavedVar.USE_SET4 = true
     end
-    if RLib_ProtPally_SavedVar.INTERRUPT_ALL == nil then
-        RLib_ProtPally_SavedVar.INTERRUPT_ALL = true
-    end
 end
 
 do
@@ -252,22 +249,6 @@ do
     local function SetValue(value)
         Utils.Print("套装四件套:" .. tostring(value))
         RLib_ProtPally_SavedVar.USE_SET4 = value
-    end
-    local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
-    Settings.CreateCheckbox(category, setting, tooltip)
-end
-
-do
-    local variable = "INTERRUPT_ALL"
-    local name = "全部打断"
-    local tooltip = "有什么断什么"
-    local defaultValue = true
-    local function GetValue()
-        return RLib_ProtPally_SavedVar.INTERRUPT_ALL
-    end
-    local function SetValue(value)
-        Utils.Print("打断全部:" .. tostring(value))
-        RLib_ProtPally_SavedVar.INTERRUPT_ALL = value
     end
     local setting = Settings.RegisterProxySetting(category, variable, type(defaultValue), name, defaultValue, GetValue, SetValue)
     Settings.CreateCheckbox(category, setting, tooltip)
